@@ -1,5 +1,4 @@
 import LoginFormView from './views/login-form';
-console.log('i am alive!!');
 export default function() {
-
+  var l = new LoginFormView({el: '.login-form'});
 }
