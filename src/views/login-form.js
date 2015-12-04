@@ -2,6 +2,7 @@ export default Backbone.View.extend({
 
   events: {
     submit(ev) {
+      debugger;
       ev.preventDefault();
 
       var username = this.$el.find('#username').val();
@@ -12,8 +13,8 @@ export default Backbone.View.extend({
       {user: 'admin@google.com', password: 'pandas'},
       {user: 'chancey_ward@yahoo.com', password: 'honeycrisp'},
     ];
-      var validLogIn  = acceptedUsers.reduce(function(current, deny) {
-      if (current.username === user && current.password === password) {
+      var validLogIn  = acceptedUsers.reduce(function(deny, current) {
+      if (current.user === username && current.password === password) {
         return true;
       }
 
@@ -22,7 +23,7 @@ export default Backbone.View.extend({
     }, false);
 
       if (validLogIn === true) {
-        window.location = 'http//theironyard.com';
+        window.location = 'http://theironyard.com';
       } else {
         alert('Login Attempt Failed: Bro did you match a valid username and password bro???');
       }
